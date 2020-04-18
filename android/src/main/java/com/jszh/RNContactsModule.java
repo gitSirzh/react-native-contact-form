@@ -10,6 +10,8 @@ import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.uimanager.IllegalViewOperationException;
 
+import com.facebook.react.bridge.Arguments;
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
@@ -31,7 +33,7 @@ public class RNContactsModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void openContacts(Promise promise) {
+    public void openContacts(final Promise promise) {
         reactContext.startActivityForResult(new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI), 0, null);
         reactContext.addActivityEventListener(new BaseActivityEventListener() {
             @Override

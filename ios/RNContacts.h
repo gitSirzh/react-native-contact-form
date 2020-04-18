@@ -1,11 +1,20 @@
+//
+//  RNContacts.h
+//  react-native-contact-form
+//
+//  Created by jszh on 2020/4/18.
+//  Copyright © 2020 Facebook. All rights reserved.
+//
 
-#if __has_include("RCTBridgeModule.h")
-#import "RCTBridgeModule.h"
-#else
+
 #import <React/RCTBridgeModule.h>
-#endif
 
-@interface RNContacts : NSObject <RCTBridgeModule>
+@import Contacts;
+@import ContactsUI;
+@import AddressBook;
+@import AddressBookUI;
+
+@interface RNContacts : NSObject <RCTBridgeModule, CNContactPickerDelegate, ABPeoplePickerNavigationControllerDelegate>
 
 @end
-  
+

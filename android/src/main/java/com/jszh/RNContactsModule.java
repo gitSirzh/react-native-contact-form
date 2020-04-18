@@ -1,12 +1,16 @@
 
-package com.reactlibrary;
+package com.jszh;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.BaseActivityEventListener;
+import com.facebook.react.bridge.WritableMap;
+
+import com.facebook.react.bridge.Promise;
+import com.facebook.react.uimanager.IllegalViewOperationException;
 
 import android.content.ContentResolver;
-import com.facebook.react.bridge.Promise;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;

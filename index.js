@@ -1,6 +1,9 @@
+/**
+ * Created by jszh on 2020/4/18.
+ */
 
-import { NativeModules } from 'react-native';
+'use strict';
 
-const { RNContacts } = NativeModules;
+import Contacts from './src'
 
-export default RNContacts;
+export default Contacts;

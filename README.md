@@ -5,8 +5,8 @@
 ## Example
 
 <p>
-    ![](https://github.com/gitSirzh/Nostalgia/blob/master/z_view/img/introduce/%E5%86%B0%E6%B2%B3%E4%B8%96%E7%BA%AA-%E6%9D%BE%E9%BC%A0.gif)
-    ![](https://github.com/gitSirzh/Nostalgia/blob/master/z_view/img/introduce/%E5%86%B0%E6%B2%B3%E4%B8%96%E7%BA%AA-%E6%9D%BE%E9%BC%A0.gif)
+    ![](https://github.com/gitSirzh/react-native-contact-form/blob/master/src/file/IOSVideo.gif)
+    ![](https://github.com/gitSirzh/react-native-contact-form/blob/master/src/file/IOSVideo.gif)
 <p>
 
 ## Installation

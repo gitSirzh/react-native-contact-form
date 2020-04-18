@@ -1,8 +1,13 @@
 # react-native-contact-form
 
-[![npm version](https://www.npmjs.com/package/react-native-contact-form.svg)](https://www.npmjs.com/package/react-native-contact-form)
-
 调用系统自带的通讯录UI 并选择联系人
+
+## Example
+
+<p>
+    ![](https://github.com/gitSirzh/Nostalgia/blob/master/z_view/img/introduce/%E5%86%B0%E6%B2%B3%E4%B8%96%E7%BA%AA-%E6%9D%BE%E9%BC%A0.gif)
+    ![](https://github.com/gitSirzh/Nostalgia/blob/master/z_view/img/introduce/%E5%86%B0%E6%B2%B3%E4%B8%96%E7%BA%AA-%E6%9D%BE%E9%BC%A0.gif)
+<p>
 
 ## Installation
 

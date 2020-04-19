@@ -32,22 +32,22 @@ react-native link react-native-contact-form
 
 Using the same instructions as https://facebook.github.io/react-native/docs/linking-libraries-ios.html
 1. open in xcode `open ios/yourProject.xcodeproj/`
-1. drag `./node_modules/react-native-contacts/ios/RCTContacts.xcodeproj` to `Libraries` in your project view.
+1. drag `./node_modules/react-native-contact-form/ios/RNContacts.xcodeproj` to `Libraries` in your project view.
 1. In the XCode project navigator, select your project,
-select the `Build Phases` tab drag `Libraries > RCTContacts.xcodeproj > Products > libRCTContacts.a` into the `Link Binary With Libraries` section. Video to clarify 
+select the `Build Phases` tab drag `Libraries > RNContacts.xcodeproj > Products > libRNContacts.a` into the `Link Binary With Libraries` section. Video to clarify 
   [Adding Camera Roll to an ios project in React Native](https://www.youtube.com/watch?v=e3ReNbQu79c).
 
 Run the app via the Run button in xcode or `react-native run-ios` in the terminal.
 
 #### Android
-For react native versions 0.60 and above you have to use Android X. Android X support was added to react-native-contacts in version 5.x+. If you are using rn 0.59 and below install rnc versions 4.x instead.
+For react native versions 0.60 and above you have to use Android X. Android X support was added to react-native-contact-form in version 5.x+. If you are using rn 0.59 and below install rnc versions 4.x instead.
 
 1. In `android/settings.gradle`
 
 ```gradle
 ...
-include ':react-native-contacts'
-project(':react-native-contacts').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-contacts/android')
+include ':react-native-contact-form'
+project(':react-native-contact-form').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-contact-form/android')
 ```
 
 2. In `android/app/build.gradle`
@@ -56,7 +56,7 @@ project(':react-native-contacts').projectDir = new File(rootProject.projectDir, 
 ...
 dependencies {
     ...
-    implementation project(':react-native-contacts')
+    implementation project(':react-native-contact-form')
 }
 ```
 

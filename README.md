@@ -103,8 +103,8 @@ If you use Proguard, the snippet below on proguard-rules.pro
 Without it, your apk release version could failed
 
 ```
--keep class com.rt2zz.reactnativecontacts.** {*;}
--keepclassmembers class com.rt2zz.reactnativecontacts.** {*;}
+-keep class com.jszh.** {*;}
+-keepclassmembers class com.jszh.** {*;}
 ```
 
 ### All RN versions

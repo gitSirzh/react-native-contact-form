@@ -4,25 +4,37 @@
 
 'use strict';
 
-import {NativeModules, Platform} from 'react-native';
+import {NativeModules, Platform, PermissionsAndroid} from 'react-native';
 
 const {RNContacts} = NativeModules;
 
 export default new class Contacts {
 
-    openContacts(callback, errorCallback) {
+    async openContacts() {
         if (Platform.OS === 'ios') {
-            RNContacts.openContacts().then((data) => {
-                callback(data)
-            }, (error) => {
-                errorCallback({'massage': `获取联系人失败:${error}`});
-            });
+            return this.hasPermissionsOpenContacts();
         } else {
-            RNContacts.openContacts().then((data) => {
-                callback(data)
-            }, (error) => {
-                errorCallback({'massage': `获取联系人失败:${error}`});
-            });
+            let granted = await PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.READ_CONTACTS);
+            if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+                return this.hasPermissionsOpenContacts();
+            } else {
+                granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_CONTACTS);
+                if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+                    return this.hasPermissionsOpenContacts();
+                } else {
+                    return this.responseError('没有权限');
+                }
+            }
         }
     };
+
+    hasPermissionsOpenContacts() {
+        return RNContacts.openContacts();
+    }
+
+    responseError(error) {
+        return new Promise((okCallback, errorCallback) => {
+            errorCallback({'message': error});
+        });
+    }
 }

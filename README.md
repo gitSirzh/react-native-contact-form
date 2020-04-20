@@ -43,16 +43,6 @@ Add `READ_PROFILE` and/or `WRITE_PROFILE` permissions to `AndroidManifest.xml`
 ...
 ```
 
-#### ProGuard
-
-If you use Proguard, the snippet below on proguard-rules.pro
-Without it, your apk release version could failed
-
-```
--keep class com.jszh.** {*;}
--keepclassmembers class com.jszh.** {*;}
-```
-
 ### All RN versions
 
 #### ios
@@ -68,6 +58,8 @@ If you'd like to read/write the contact's notes, call the `iosEnableNotesUsage(t
 ```javascript
 import Contacts from 'react-native-contact-form'
 
-Contacts.openContacts((contact)=>{
-    console.log('name:' + contact.name, 'phone:' + contact.phone)  // contact: {name: '小张', phone: '12345678901'}
+Contacts.openContacts().then((data) => {
+    console.log(JSON.stringify(data)) // contact: {name: '小张', phone: '12345678901'}
+}, (error) => {
+    console.log(error.message)
 })

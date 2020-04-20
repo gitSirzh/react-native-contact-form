@@ -89,7 +89,7 @@ RCT_REMAP_METHOD(openContacts,resolver:(RCTPromiseResolveBlock)resolve rejecter:
      This could also be extended to return arrays of phone numbers addresses etc. instead of jsut first found
      */
     NSMutableDictionary *contactData = [self emptyContactDict];
-    NSString *fullName = [self getFullNameForFirst:contact.givenName middle:contact.middleName];
+    NSString *fullName = [self getFullNameForFirst:contact.givenName middle:contact.familyName];
     NSArray *phoneNos = contact.phoneNumbers;
     //Return full name
     [contactData setValue:fullName forKey:@"name"];

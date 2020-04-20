@@ -9,7 +9,10 @@
   "keywords": [
     "react-native"
   ],
-  "author": "",
+  "homepage": "https://github.com/gitSirzh/react-native-contact-form",
+  "author": {
+    "name": "jszh"
+  },
   "license": "",
   "peerDependencies": {
     "react-native": "^0.41.2",

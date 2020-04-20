@@ -34,8 +34,7 @@ Using the same instructions as https://facebook.github.io/react-native/docs/link
 1. open in xcode `open ios/yourProject.xcodeproj/`
 1. drag `./node_modules/react-native-contact-form/ios/RNContacts.xcodeproj` to `Libraries` in your project view.
 1. In the XCode project navigator, select your project,
-select the `Build Phases` tab drag `Libraries > RNContacts.xcodeproj > Products > libRNContacts.a` into the `Link Binary With Libraries` section. Video to clarify 
-  [Adding Camera Roll to an ios project in React Native](https://www.youtube.com/watch?v=e3ReNbQu79c).
+select the `Build Phases` tab drag `Libraries > RNContacts.xcodeproj > Products > libRNContacts.a` into the `Link Binary With Libraries` section.
 
 Run the app via the Run button in xcode or `react-native run-ios` in the terminal.
 
@@ -99,7 +98,7 @@ Add `READ_PROFILE` and/or `WRITE_PROFILE` permissions to `AndroidManifest.xml`
 
 #### ProGuard
 
-If you use Proguard, the snippet below on proguard-rules.pro 
+If you use Proguard, the snippet below on proguard-rules.pro
 Without it, your apk release version could failed
 
 ```
@@ -123,5 +122,5 @@ If you'd like to read/write the contact's notes, call the `iosEnableNotesUsage(t
 import Contacts from 'react-native-contact-form'
 
 Contacts.openContacts((contact)=>{
-    console.log('name:' + contact.name, 'phone:' + contact.phone)  //contact:{name:'小张',phone:'12345678901'}
+    console.log('name:' + contact.name, 'phone:' + contact.phone)  // contact: {name: '小张', phone: '12345678901'}
 })

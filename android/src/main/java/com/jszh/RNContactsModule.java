@@ -20,8 +20,8 @@ import android.provider.ContactsContract;
 
 public class RNContactsModule extends ReactContextBaseJavaModule {
 
-    private final ReactApplicationContext reactContext;
-    private final Promise promise
+    private ReactApplicationContext reactContext;
+    private Promise promise;
 
     public RNContactsModule(ReactApplicationContext reactContext) {
         super(reactContext);
@@ -55,6 +55,7 @@ public class RNContactsModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void openContacts(final Promise promise) {
+        this.promise = promise;
         reactContext.startActivityForResult(new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI), 0, null);
     }
 

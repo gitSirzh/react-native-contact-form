@@ -75,8 +75,8 @@ RCT_REMAP_METHOD(openContacts,resolver:(RCTPromiseResolveBlock)resolve rejecter:
  */
 -(NSString *) getFullNameForFirst:(NSString *)fName middle:(NSString *)mName {
   //Check whether to include middle name or not
-  NSArray *names = (mName.length > 0) ? [NSArray arrayWithObjects:fName, mName, nil] : [NSArray arrayWithObjects:fName, nil];;
-  return [names componentsJoinedByString:@" "];
+  NSArray *names = (mName.length > 0) ? [NSArray arrayWithObjects:mName, fName, nil] : [NSArray arrayWithObjects:fName, nil];
+  return [names componentsJoinedByString:@""];
 }
 
 

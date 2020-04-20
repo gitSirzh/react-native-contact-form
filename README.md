@@ -23,7 +23,7 @@ yarn add react-native-contact-form
 ```
 # RN >= 0.61.5
 cd ios && pod install
-
+```
 
 #### Permissions
 ##### API 23+

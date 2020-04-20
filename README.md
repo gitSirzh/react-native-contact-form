@@ -21,62 +21,9 @@ or using yarn:
 yarn add react-native-contact-form
 ```
 ```
-# RN >= 0.60
+# RN >= 0.61.5
 cd ios && pod install
 
-# RN < 0.60
-react-native link react-native-contact-form
-```
-
-#### iOS
-
-Using the same instructions as https://facebook.github.io/react-native/docs/linking-libraries-ios.html
-1. open in xcode `open ios/yourProject.xcodeproj/`
-1. drag `./node_modules/react-native-contact-form/ios/RNContacts.xcodeproj` to `Libraries` in your project view.
-1. In the XCode project navigator, select your project,
-select the `Build Phases` tab drag `Libraries > RNContacts.xcodeproj > Products > libRNContacts.a` into the `Link Binary With Libraries` section.
-
-Run the app via the Run button in xcode or `react-native run-ios` in the terminal.
-
-#### Android
-For react native versions 0.60 and above you have to use Android X. Android X support was added to react-native-contact-form in version 5.x+. If you are using rn 0.59 and below install rnc versions 4.x instead.
-
-1. In `android/settings.gradle`
-
-```gradle
-...
-include ':react-native-contact-form'
-project(':react-native-contact-form').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-contact-form/android')
-```
-
-2. In `android/app/build.gradle`
-
-```gradle
-...
-dependencies {
-    ...
-    implementation project(':react-native-contact-form')
-}
-```
-
-3. register module
-
-```java
-//  MainApplication.java
-import com.jszh.RNContactsPackage; // <--- import
-
-public class MainApplication extends Application implements ReactApplication {
-  ......
-
-  @Override
-  protected List<ReactPackage> getPackages() {
-    return Arrays.<ReactPackage>asList(
-            new MainReactPackage(),
-            new RNContactsPackage()); // <------ add this
-  }
-  ......
-}
-```
 
 #### Permissions
 ##### API 23+

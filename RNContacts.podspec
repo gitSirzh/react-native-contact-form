@@ -12,13 +12,11 @@ Pod::Spec.new do |s|
   s.homepage     = package['repository']['url']
   s.platform     = :ios, "7.0"
   s.ios.deployment_target = '7.0'
-  s.tvos.deployment_target = '7.0'
 
   s.source       = { :git => "https://github.com/gitSirzh/react-native-contact-form.git", :tag => "v#{s.version}" }
-  s.source_files  = "ios/**/*.{h,m}"
+  s.source_files  = "ios/*.{h,m}"
 
   s.dependency "React"
-
 end
 
 

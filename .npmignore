@@ -31,5 +31,6 @@ example/
 # .idea
 
 .idea/
+src/file
 .gradle/
 pic

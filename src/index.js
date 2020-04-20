@@ -4,17 +4,25 @@
 
 'use strict';
 
-import {NativeModules} from 'react-native';
+import {NativeModules, Platform} from 'react-native';
 
 const {RNContacts} = NativeModules;
 
 export default new class Contacts {
 
     openContacts(callback, errorCallback) {
-        RNContacts.openContacts().then((data) => {
-            callback(data)
-        }, (error) => {
-            errorCallback({'massage': `获取联系人失败:${error}`});
-        });
+        if (Platform.OS === 'ios') {
+            RNContacts.openContacts().then((data) => {
+                callback(data)
+            }, (error) => {
+                errorCallback({'massage': `获取联系人失败:${error}`});
+            });
+        } else {
+            RNContacts.openContacts().then((data) => {
+                callback(data)
+            }, (error) => {
+                errorCallback({'massage': `获取联系人失败:${error}`});
+            });
+        }
     };
 }

@@ -21,20 +21,11 @@ import android.provider.ContactsContract;
 public class RNContactsModule extends ReactContextBaseJavaModule {
 
     private final ReactApplicationContext reactContext;
+    private final Promise promise
 
     public RNContactsModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
-    }
-
-    @Override
-    public String getName() {
-        return "RNContacts";
-    }
-
-    @ReactMethod
-    public void openContacts(final Promise promise) {
-        reactContext.startActivityForResult(new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI), 0, null);
         reactContext.addActivityEventListener(new BaseActivityEventListener() {
             @Override
             public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
@@ -55,6 +46,16 @@ public class RNContactsModule extends ReactContextBaseJavaModule {
                 }
             }
         });
+    }
+
+    @Override
+    public String getName() {
+        return "RNContacts";
+    }
+
+    @ReactMethod
+    public void openContacts(final Promise promise) {
+        reactContext.startActivityForResult(new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI), 0, null);
     }
 
     private String[] getPhoneContacts(Uri uri) {

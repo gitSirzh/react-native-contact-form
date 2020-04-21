@@ -3,7 +3,7 @@ require 'json'
 package = JSON.parse(File.read('package.json'))
 
 Pod::Spec.new do |s|
-  s.name           = package['name']
+  s.name           = RNContacts
 
   s.version        = package["version"]
   s.summary        = 'Contacts plugin to wrap native contact pickers for iOS and Android.'

@@ -8,9 +8,9 @@ import {NativeModules, Platform, PermissionsAndroid} from 'react-native';
 
 const {RNContacts} = NativeModules;
 
-export default {
+export default new class ICContacts {
 
-    openContacts: async () => {
+    openContacts = async () => {
         if (Platform.OS === 'ios') {
             return this.hasPermissionsOpenContacts();
         } else {
@@ -26,13 +26,13 @@ export default {
                 }
             }
         }
-    },
+    };
 
-    hasPermissionsOpenContacts: () => {
+    hasPermissionsOpenContacts = () => {
         return RNContacts.openContacts();
-    },
+    };
 
-    responseError: (error) => {
+    responseError = (error) => {
         return new Promise((okCallback, errorCallback) => {
             errorCallback({'message': error});
         });

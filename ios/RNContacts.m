@@ -25,7 +25,6 @@
 RCT_EXPORT_MODULE()
 
 RCT_REMAP_METHOD(openContacts,resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject){
-
   self._resolve = resolve;
   self._reject = reject;
   [self launchContacts];
@@ -80,27 +79,26 @@ RCT_REMAP_METHOD(openContacts,resolver:(RCTPromiseResolveBlock)resolve rejecter:
 }
 
 
-
 #pragma mark - Event handlers - iOS 9+
 
-- (void)contactPicker:(CNContactPickerViewController *)picker didSelectContact:(CNContact *)contact {
+- (void)contactPicker:(CNContactPickerViewController *)picker didSelectContactProperty:(CNContactProperty *)contactProperty {
     /* Return NSDictionary ans JS Object to RN, containing basic contact data
      This is a starting point, in future more fields should be added, as required.
      This could also be extended to return arrays of phone numbers addresses etc. instead of jsut first found
      */
+    CNContact *contact = contactProperty.contact;
+    NSString *name = [CNContactFormatter stringFromContact:contact style:CNContactFormatterStyleFullName];
     NSMutableDictionary *contactData = [self emptyContactDict];
-    NSString *fullName = [self getFullNameForFirst:contact.givenName middle:contact.familyName];
-    NSArray *phoneNos = contact.phoneNumbers;
-    //Return full name
-    [contactData setValue:fullName forKey:@"name"];
-    //Return first phone number
-    if([phoneNos count] > 0) {
-      CNPhoneNumber *phone = ((CNLabeledValue *)phoneNos[0]).value;
-      [contactData setValue:phone.stringValue forKey:@"phone"];
+    [contactData setValue:name forKey:@"name"];
+    CNPhoneNumber *phoneValue = contactProperty.value;
+    if ([phoneValue isKindOfClass:[CNPhoneNumber class]]) {
+        NSString *phoneNumber = phoneValue.stringValue;
+        [contactData setValue:phoneNumber forKey:@"phone"];
+    } else {
+        [contactData setValue:phoneValue forKey:@"phone"];
     }
     [self contactPicked:contactData];
 }
-
 
 
 #pragma mark - Event handlers - iOS 8

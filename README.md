@@ -4,8 +4,8 @@
 
 ## Example
 
-#### ![](https://github.com/gitSirzh/react-native-contact-form/blob/master/src/file/AndroidVideo.gif)
-#### ![](https://github.com/gitSirzh/react-native-contact-form/blob/master/src/file/IOSVideo.gif)
+#### ![image](/src/file/AndroidVideo.gif)
+#### ![image](/src/file/IOSVideo.gif)
 
 ## Installation
 

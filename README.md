@@ -4,8 +4,8 @@
 
 ## Example
 
-#### ![image](/src/file/AndroidVideo.gif)
-#### ![image](/src/file/IOSVideo.gif)
+![image](/src/file/AndroidVideo.gif)
+![image](/src/file/IOSVideo.gif)
 
 ## Installation
 

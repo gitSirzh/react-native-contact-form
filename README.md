@@ -1,8 +1,11 @@
 # react-native-contact-form
 
-调用系统自带的通讯录UI 并选择联系人
+调用系统自带通讯录
 
-## Example
+#### 如果解决了您的问题，请点个🌟
+#### If your problem is solved, please click🌟
+
+## Presentation
 
 #### ![](https://github.com/gitSirzh/react-native-contact-form/blob/master/src/file/AndroidVideo.gif)
 #### ![](https://github.com/gitSirzh/react-native-contact-form/blob/master/src/file/IOSVideo.gif)
@@ -24,6 +27,17 @@ yarn add react-native-contact-form
 # RN >= 0.61.5
 cd ios && pod install
 ```
+
+## Usage
+
+```javascript
+import Contacts from 'react-native-contact-form'
+
+Contacts.openContacts().then((data) => {
+    console.log(JSON.stringify(data)) // contact: {name: '小张', phone: '12345678901'}
+}, (error) => {
+    console.log(error.message)
+})
 
 #### Permissions
 ##### API 23+
@@ -53,13 +67,3 @@ Add kit specific "permission" keys to your Xcode `Info.plist` file, in order to 
 ##### Accessing note filed on iOS 13 (optional)
 If you'd like to read/write the contact's notes, call the `iosEnableNotesUsage(true)` method before accessing the contact infos. Also, a `com.apple.developer.contacts.notes` entitlement must be added to the project. Before submitting your app to the AppStore, the permission for using the entitlement has to be granted as well. You can find a more detailed explanation [here](https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_developer_contacts_notes?language=objc).
 
-## Usage
-
-```javascript
-import Contacts from 'react-native-contact-form'
-
-Contacts.openContacts().then((data) => {
-    console.log(JSON.stringify(data)) // contact: {name: '小张', phone: '12345678901'}
-}, (error) => {
-    console.log(error.message)
-})

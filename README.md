@@ -2,8 +2,8 @@
 
 调用系统自带通讯录
 
-#### 如果解决了您的问题，请点个🌟
-#### If your problem is solved, please click🌟
+#### 如果解决了您的问题，[请点个🌟](https://github.com/gitSirzh/react-native-contact-form)
+#### If your problem is solved, [please click🌟](https://github.com/gitSirzh/react-native-contact-form)
 
 ## Presentation
 

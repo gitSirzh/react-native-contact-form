@@ -38,6 +38,7 @@ Contacts.openContacts().then((data) => {
 }, (error) => {
     console.log(error.message)
 })
+```
 
 #### Permissions
 ##### API 23+

@@ -1,4 +1,5 @@
 # react-native-contact-form
+[![npm version](https://badge.fury.io/js/react-native-contact-form.svg)](https://badge.fury.io/js/react-native-contact-form)
 
 调用系统自带通讯录
 

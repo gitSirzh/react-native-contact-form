@@ -18,7 +18,6 @@ Using npm:
 ```shell
 npm install react-native-contact-form --save
 ```
-
 or using yarn:
 
 ```shell

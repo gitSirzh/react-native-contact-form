@@ -18,7 +18,6 @@ Using npm:
 ```shell
 npm install react-native-contact-form --save
 ```
-
 or using yarn:
 
 ```shell
@@ -35,7 +34,7 @@ cd ios && pod install
 import Contacts from 'react-native-contact-form'
 
 Contacts.openContacts().then((data) => {
-    console.log(JSON.stringify(data)) // contact: {name: '小张', phone: '12345678901'}
+    console.log(JSON.stringify(data)) // data: {name: '小张', phone: '12345678901'}
 }, (error) => {
     console.log(error.message) // 获取联系人失败
 })

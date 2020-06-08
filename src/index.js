@@ -8,7 +8,7 @@ import {NativeModules, Platform, PermissionsAndroid} from 'react-native';
 
 const {RNContacts} = NativeModules;
 
-export default new class ICContacts {
+export default new class Contacts {
 
     openContacts = async () => {
         if (Platform.OS === 'ios') {

@@ -4,6 +4,6 @@
 
 'use strict';
 
-import ICContacts from './src'
+import Contacts from './src'
 
-export default ICContacts;
+export default Contacts;

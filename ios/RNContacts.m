@@ -11,8 +11,8 @@
 #import "RNContacts.h"
 @interface RNContacts()
 
-@property(nonatomic, retain) RCTPromiseResolveBlock _resolve;
-@property(nonatomic, retain) RCTPromiseRejectBlock _reject;
+@property (nonatomic, strong) RCTPromiseResolveBlock _resolve;
+@property (nonatomic, strong) RCTPromiseRejectBlock _reject;
 
 @end
 

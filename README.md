@@ -35,7 +35,7 @@ import Contacts from 'react-native-contact-form'
 
 Contacts.openContacts().then((res) => {
     res.phone = res.phone && res.phone.replace(/\s*/g, '');
-    console.log(JSON.stringify(res)) // res: {name: '小张', phone: '12345678901'}
+    console.log(JSON.stringify(res)) // res: {name: '小伙子', phone: '15518720000'}
 }, (error) => {
     console.log(error.message) // 获取联系人失败
 })

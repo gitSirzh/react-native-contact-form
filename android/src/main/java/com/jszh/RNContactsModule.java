@@ -11,14 +11,18 @@ import com.facebook.react.bridge.Promise;
 import com.facebook.react.uimanager.IllegalViewOperationException;
 
 import com.facebook.react.bridge.Arguments;
+
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
+import android.os.Bundle;
 
 public class RNContactsModule extends ReactContextBaseJavaModule {
+
+    private static final int REQUEST_OPEN_EXISTING_CONTACT = 19979;
 
     private ReactApplicationContext reactContext;
     private Promise promise;
@@ -30,6 +34,12 @@ public class RNContactsModule extends ReactContextBaseJavaModule {
             @Override
             public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
                 super.onActivityResult(activity, requestCode, resultCode, data);
+                if (requestCode != REQUEST_OPEN_EXISTING_CONTACT || promise == null) {
+                    return;
+                }
+                if (resultCode != Activity.RESULT_OK) {
+                    return;
+                }
                 if (data != null) {
                     Uri uri = data.getData();
                     String[] contact = getPhoneContacts(uri);
@@ -56,7 +66,7 @@ public class RNContactsModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void openContacts(final Promise promise) {
         this.promise = promise;
-        reactContext.startActivityForResult(new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI), 0, null);
+        reactContext.startActivityForResult(new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI), REQUEST_OPEN_EXISTING_CONTACT, Bundle.EMPTY);
     }
 
     private String[] getPhoneContacts(Uri uri) {
@@ -73,4 +83,5 @@ public class RNContactsModule extends ReactContextBaseJavaModule {
         }
         return contact;
     }
+
 }

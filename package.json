@@ -1,6 +1,6 @@
 {
   "name": "react-native-contact-form",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "调用系统自带通讯录",
   "main": "index.js",
   "repository": {

@@ -36,19 +36,12 @@ RCT_REMAP_METHOD(openContacts,resolver:(RCTPromiseResolveBlock)resolve rejecter:
 }
 
 /**
- 打开联系人UI
+ Open Contacts
  */
 -(void) launchContacts {
   UIViewController *picker;
-  if([CNContactPickerViewController class]) {
-    //iOS 9+
-    picker = [[CNContactPickerViewController alloc] init];
-    ((CNContactPickerViewController *)picker).delegate = self;
-  } else {
-    //iOS 8 and below
-    picker = [[ABPeoplePickerNavigationController alloc] init];
-    [((ABPeoplePickerNavigationController *)picker) setPeoplePickerDelegate:self];
-  }
+  picker = [[CNContactPickerViewController alloc] init];
+  ((CNContactPickerViewController *)picker).delegate = self;
   //Launch Contact Picker or Address Book View Controller
   UIViewController *root = [[[UIApplication sharedApplication] delegate] window].rootViewController;
   BOOL modalPresent = (BOOL) (root.presentedViewController);
@@ -98,36 +91,6 @@ RCT_REMAP_METHOD(openContacts,resolver:(RCTPromiseResolveBlock)resolve rejecter:
         [contactData setValue:phoneValue forKey:@"phone"];
     }
     [self contactPicked:contactData];
-}
-
-
-#pragma mark - Event handlers - iOS 8
-
-/* Same functionality as above, implemented using iOS8 AddressBook library */
-- (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker didSelectPerson:(ABRecordRef)person {
-  /* Return NSDictionary ans JS Object to RN, containing basic contact data
-   This is a starting point, in future more fields should be added, as required.
-   This could also be extended to return arrays of phone numbers addresses etc. instead of jsut first found
-   */
-  NSMutableDictionary *contactData = [self emptyContactDict];
-        NSString *fNameObject, *mNameObject, *lNameObject;
-  fNameObject = (__bridge NSString *) ABRecordCopyValue(person, kABPersonFirstNameProperty);
-  mNameObject = (__bridge NSString *) ABRecordCopyValue(person, kABPersonMiddleNameProperty);
-  lNameObject = (__bridge NSString *) ABRecordCopyValue(person, kABPersonLastNameProperty);
-
-  NSString *fullName = [self getFullNameForFirst:fNameObject middle:mNameObject];
-
-  //Return full name
-  [contactData setValue:fullName forKey:@"name"];
-
-  //Return first phone number
-  ABMultiValueRef phoneMultiValue = ABRecordCopyValue(person, kABPersonPhoneProperty);
-  NSArray *phoneNos = (__bridge NSArray *)ABMultiValueCopyArrayOfAllValues(phoneMultiValue);
-  if([phoneNos count] > 0) {
-    [contactData setValue:phoneNos[0] forKey:@"phone"];
-  }
-  [self contactPicked:contactData];
-
 }
 
 @end

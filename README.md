@@ -1,9 +1,9 @@
 # react-native-contact-form
 [![npm version](https://badge.fury.io/js/react-native-contact-form.svg)](https://badge.fury.io/js/react-native-contact-form)
 
-调用系统自带通讯录
-
 [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=gitSirzh)](https://github.com/gitSirzh/react-native-contact-form)
+
+调用系统自带通讯录
 
 #### 如果解决了您的问题，[请点个🌟](https://github.com/gitSirzh/react-native-contact-form)
 #### If your problem is solved, [please click🌟](https://github.com/gitSirzh/react-native-contact-form)

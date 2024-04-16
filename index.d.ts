@@ -2,7 +2,7 @@
  * Created by sszh on 2024/4/16.
  */
 
-// @ts-ignore
-import Contacts from './src'
+export default new class Contacts {
+    openContacts()
+};
 
-export default Contacts;

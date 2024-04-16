@@ -1,9 +1,8 @@
 /**
- * Created by jszh on 2020/4/18.
+ * Created by sszh on 2024/4/16.
  */
 
-'use strict';
-
+// @ts-ignore
 import Contacts from './src/index'
 
 export default Contacts;

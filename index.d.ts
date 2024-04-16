@@ -3,6 +3,6 @@
  */
 
 // @ts-ignore
-import Contacts from './src/index'
+import Contacts from './src'
 
 export default Contacts;

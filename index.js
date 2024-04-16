@@ -4,6 +4,6 @@
 
 'use strict';
 
-import Contacts from './src/index'
+import Contacts from './src'
 
 export default Contacts;
